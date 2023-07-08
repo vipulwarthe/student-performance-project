@@ -7,41 +7,40 @@ vipul repo link:  https://github.com/vipulwarthe/student-performance
 
 First we Create instance with ubuntu AMI with t2.medium instance type with 30GB storage and sg-SSH/All Traffic-anywhere 
 
-   1   sudo apt-get update && sudo apt-get upgrade -y    (download packages information and downloads and installs the updates for each outdated package and dependency on 
+sudo apt-get update && sudo apt-get upgrade -y    (download packages information and downloads and installs the updates for each outdated package and dependency on 
        your system)  
-   2   sudo apt install python3-venv -y          (install python environment)
-   3   python3 -m venv MLPRO                     (create an isolated Python environment)
-   4   source MLPRO/bin/activate                 (activate envirnoment mlpro env)
-   5   mkdir mlproject                           (create one project directory)
-   6   cd mlproject                              (enter in project directory)
+sudo apt install python3-venv -y          (install python environment)
+python3 -m venv MLPRO                     (create an isolated Python environment)
+source MLPRO/bin/activate                 (activate envirnoment mlpro env)
+mkdir mlproject                           (create one project directory)
+cd mlproject                              (enter in project directory)
 
 Login to your github account and create a new repo and paste cmds from github repo:
 
-   7   echo "# End-to-end-ML-Project" >> README.md
-   8   git add README.md
-   9   git commit -m "First Commit"
-   10  git status
-   11  git branch -M main
-   12  git branch
-   13  git remote add origin https://github.com/vipulwarthe/mlproject.git
-   14  git push -u origin main
-       git remote -v    (additional command)
+echo "# End-to-end-ML-Project" >> README.md
+git add README.md
+git commit -m "First Commit"
+git status
+git branch -M main
+git branch
+git remote add origin https://github.com/vipulwarthe/mlproject.git
+git push -u origin main
+git remote -v    (additional command)
 
 Create .gitignore file with python template in mlproject repo on github
 
-   15  git pull                     (It will pull the .gitignore file in VScode mlproject repo)
+git pull                     (It will pull the .gitignore file in VScode mlproject repo)
 
 create setup.py and requirements.txt in mlproject repo add a code in setup.py & requirements.txt
 
 -setup.py will be responsible in creating my ML application as a package
 
-   16  pip install -r requirements.txt 
-   17  git status
-   18  git add .
-   19  git status
-   20  git commit -m "Setup"
-   21  git push -u origin main
-
+pip install -r requirements.txt 
+git status
+git add .
+git status
+git commit -m "Setup"
+git push -u origin main
 
 Create src (source) folder in mlproject and create below files in src on vs code  (this is the source file which help to manage the ml model)
 __init__.py               -in src
@@ -50,16 +49,15 @@ exception.py
 utils.py
 
 create "components" (folder) in src folder & Create below files in components folder  
-  __init__.py
-  data_ingestion.py
-  data_transformation.py
-  model_trainer.py
+__init__.py
+data_ingestion.py
+data_transformation.py
+model_trainer.py
 
 create "pipeline" (folder) in src & Create below files in pipeline folder  (we train and predict the model)
-  __init__.py
-  train_pipeline.py
-  predict_pipline.py
-
+__init__.py
+train_pipeline.py
+predict_pipline.py
 
 paste the code of exception.py
 paste the code of logger.py
@@ -85,8 +83,8 @@ Create folder named "data" in notebook folder & drag and drop below two file in 
 create "stud.csv" file in data folder and paste data into it.
 Now select the 1 & 2 .ipynb files, select the kernel as per suggestion and run these files. if both files run successfully run 105 command on terminal and follow the next commands as mentioned.
 
-       -pip3 install jupyterlab
-       -jupyter lab
+-pip3 install jupyterlab
+-jupyter lab
 
 -if above 2 commands not works then open new terminal and use below commands:
 
@@ -98,8 +96,7 @@ Now select the 1 & 2 .ipynb files, select the kernel as per suggestion and run t
 -jupyter notebook password   (create new password)
 -jupyter-lab --ip 0.0.0.0 --no-browser --allow-root  
 
-
-Add new 2 terminal if jupyther notebook is open on vscode.
+Add new 2nd terminal if jupyther notebook is open on vscode.
 source MLPRO/bin/activate
 cd mlproject/ 
 git status
@@ -127,8 +124,8 @@ git add .
 git commit -m "Model Training"
 git push -u origin main
 
-create one "templates" folder and create 2 files in that (index.html and home.html) 
-create application.py file in mlproject folder and paste the codes
+create one "templates" folder and create 2 files in that "index.html" and "home.html"
+create "application.py" file in mlproject folder and paste the codes
        
 make some changes in code -- add debug=True, port=5000 and run below command on terminal
 
