@@ -5,13 +5,13 @@ Krish naik Repo link: https://github.com/krishnaik06/mlproject/
 ARCHNA Repo link- https://github.com/swapnil123kapile/MLProjects-archana
 vipul repo link:  https://github.com/vipulwarthe/student-performance
 
-First we Create instance with ubuntu AMI with t2.medium instance type with 30GB storage 
+First we Create instance with ubuntu AMI with t2.medium instance type with 30GB storage and sg-SSH/All Traffic-anywhere 
 
-
-   1   sudo apt-get update && sudo apt-get upgrade -y      
+   1   sudo apt-get update && sudo apt-get upgrade -y    (download packages information and downloads and installs the updates for each outdated package and dependency on 
+       your system)  
    2   sudo apt install python3-venv -y          (install python environment)
-   3   python3 -m venv MLPRO
-   4   source MLPRO/bin/activate                 (activate env)
+   3   python3 -m venv MLPRO                     (create an isolated Python environment)
+   4   source MLPRO/bin/activate                 (activate envirnoment mlpro env)
    5   mkdir mlproject                           (create one project directory)
    6   cd mlproject                              (enter in project directory)
 
@@ -29,7 +29,7 @@ Login to your github account and create a new repo and paste cmds from github re
 
 Create .gitignore file with python template in mlproject repo on github
 
-   15  git pull    # It will pull the .gitignore file in VScode mlproject repo
+   15  git pull                     (It will pull the .gitignore file in VScode mlproject repo)
 
 create setup.py and requirements.txt in mlproject repo add a code in setup.py & requirements.txt
 
@@ -48,13 +48,14 @@ __init__.py               -in src
 logger.py
 exception.py
 utils.py
-components (folder) in src folder - Create below files in component folder  
+
+create "components" (folder) in src folder & Create below files in components folder  
   __init__.py
   data_ingestion.py
   data_transformation.py
   model_trainer.py
 
-pipeline (folder) create in src   (we train and predict the model)
+create "pipeline" (folder) in src & Create below files in pipeline folder  (we train and predict the model)
   __init__.py
   train_pipeline.py
   predict_pipline.py
@@ -64,23 +65,25 @@ paste the code of exception.py
 paste the code of logger.py
 paste the code of utils.py
 
--  22  python3 src/logger.py   (we run logger file and it will generate the logs)
+python3 src/logger.py                (we run logger file and it will generate the logs)
 
-   23  git status
-   24  git add .
-   25  git status
-   26  git commit -m "Logging and Exception"
-   27  git push -u origin main
+git status
+git add .
+git status
+git commit -m "Logging and Exception"
+git push -u origin main
 
-now check in git repo you will see all the files which you have commited and push
+now check in git repo you will see all the files which you have commited and push.
 
-Create notebook folder in mlproject & add drag below two files in it
+Create "notebook" folder in mlproject & drag and drop below two files in it.
+
 1 .EDA STUDENT PERFORMANCE.ipynb
 2 .MODEL TRAINING.ipynb
 
-Add another folder named data in notebook folder and below file int
+Create folder named "data" in notebook folder & drag and drop below two file in it.
 
-create stud.csv file in data folder and paste data into it. 
+create "stud.csv" file in data folder and paste data into it.
+Now select the 1 & 2 .ipynb files, select the kernel as per suggestion and run these files. if both files run successfully run 105 command on terminal and follow the next commands as mentioned.
 
        -pip3 install jupyterlab
        -jupyter lab
@@ -97,50 +100,50 @@ create stud.csv file in data folder and paste data into it.
 
 
 Add new 2 terminal if jupyther notebook is open on vscode.
-    1  source MLPRO/bin/activate
-    2  cd mlproject/ 
-    3  git status
-    4  git add .
-    5  git status
-    6  git commit -m "EDA and Problem Statement"
-    7  git status
-    8  git push -u origin main
-    9  python src/components/data_ingestion.py
-   10  git status
-   11  git add .
-   12  git commit -m "Data Ingestion"
-   13  git push -u origin main
+source MLPRO/bin/activate
+cd mlproject/ 
+git status
+git add .
+git status
+git commit -m "EDA and Problem Statement"
+git status
+git push -u origin main
+python src/components/data_ingestion.py
+git status
+git add .
+git commit -m "Data Ingestion"
+git push -u origin main
+python src/components/data_transformation.py
+python src/components/data_ingestion.py
+git status
+git add .
+git status
+git commit -m "Data Transformation Done"
+git push -u origin main
+python src/components/model_trainer.py 
+python src/components/data_ingestion.py
+git status
+git add .
+git commit -m "Model Training"
+git push -u origin main
 
-   15  python src/components/data_transformation.py
-  
-   16  python src/components/data_ingestion.py
-   17  git status
-   18  git add .
-   19  git status
-   20  git commit -m "Data Transformation Done"
-   21  git push -u origin main
-   22  python src/components/model_trainer.py 
-   23  python src/components/data_ingestion.py
-   24  git status
-   25  git add .
-   26  git commit -m "Model Training"
-   27  git push -u origin main
-
-  create one templates folder and create 2 files in that (index.html and home.html)and application.py file in mlproject folder
+create one "templates" folder and create 2 files in that (index.html and home.html) 
+create application.py file in mlproject folder and paste the codes
        
-       make some changes in code -- add debug=True, port=5000
-   30  python application.py
-       http://127.0.0.1:5000/predictdata  ----()
+make some changes in code -- add debug=True, port=5000 and run below command on terminal
 
-   now go to aws beanstalk and create application and give name student_performance and choose platform as python3.7 and create application with other default settings skip to review and submit.
-   -now create code-pipeline - create pipeline - name- student-performance- Service role- new service role
-   -source- github(v1)
+python application.py
 
+above command redirect to the browser  (http://127.0.0.1:5000/predictdata)  
 
-======================================================================
+now go to aws beanstalk and create application and give name student_performance and choose platform as python3.7 and create application with other default settings skip to review and submit.
+
+now create code-pipeline - create pipeline - name- student-performance- Service role- new service role
+source- github(v1)
+
+==================================================================================================================
 What is Elastic Beanstalk in AWS?
 Amazon Elastic Beanstalk is used for deploying and scaling web applications and services that are developed with Java, we can simply upload our code and Elastic Beanstalk automatically handles the deployment. It helps in deploying details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.
-
 
 Why AWS Elastic Beanstalk?
 Elastic Beanstalk is a service for deploying and scaling web applications and services. Upload your code and Elastic Beanstalk automatically handles the deployment—from capacity provisioning, load balancing, and auto scaling to application health monitoring.
@@ -148,13 +151,13 @@ Elastic Beanstalk is a service for deploying and scaling web applications and se
 What is AWS codepipeline?
 AWS CodePipeline is a product of Amazon Web Services. It automates the software deployment process that allows a developer to quickly model, visualize and deliver code for new features and updates. This method is called continuous delivery. It also enables the developer to integrate partner tools and custom tools into any stage of the release process to form an end-to-end continuous delivery solution.
 
-Q: Why should I use AWS CodePipeline to set up a continuous delivery pipeline?
+Why should I use AWS CodePipeline to set up a continuous delivery pipeline?
 By automating your build, test, and release processes, AWS CodePipeline enables you to increase the speed and quality of your software updates by running all new changes through a consistent set of quality checks.
 
-Q: Which products can be integrated with the continuous delivery pipeline I build with AWS CodePipeline?
+Which products can be integrated with the continuous delivery pipeline I build with AWS CodePipeline?
 AWS CodePipeline integrates with AWS services like AWS CodeCommit, Amazon S3, AWS CodeDeploy, AWS Elastic Beanstalk, AWS OpsWorks, and AWS Lambda. In addition, AWS CodePipeline integrates with a number of partner tools. For details see the product integrations page. Finally, you can write your own custom actions and integrate any existing tool with AWS CodePipeline. 
 
-=================================================================
+===================================================================================================================
 
 -first create IAM role for user
 -roles- create role - select ec2 - 
