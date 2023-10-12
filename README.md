@@ -12,7 +12,7 @@ sudo apt-get update && sudo apt-get upgrade -y    (download packages information
        
 sudo apt install python3-venv -y          (install python environment)
 
-python3 -m venv MLPRO                     (create an isolated Python environment)
+$python3 -m venv MLPRO                     (create an isolated Python environment)
 
 source MLPRO/bin/activate                 (activate envirnoment mlpro env)
 
