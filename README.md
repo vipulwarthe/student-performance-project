@@ -296,3 +296,4 @@ Now go to the Elastic beanstalk and Codepipeline service for deploy the predicti
 
 -delete s3 buckets
 
+* Confirm all the resources are permanently deleted.
