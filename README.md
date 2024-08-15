@@ -1,11 +1,11 @@
-# student-performance
-##deploy end to end student performance ML model with AWS elastic beanstock and codepipeline##
+# Student-Performance
+## deploy end to end student performance ML model with AWS elastic beanstock and codepipeline##
 
     Krish naik Repo link: https://github.com/krishnaik06/mlproject/
     ARCHNA Repo link- https://github.com/swapnil123kapile/MLProjects-archana
     vipul repo link:  https://github.com/vipulwarthe/student-performance
 
-# First we Create instance with ubuntu AMI with t2.medium instance type with 30GB storage and sg-SSH/All Traffic-anywhere 
+## First we Create instance with ubuntu AMI with t2.medium instance type with 30GB storage and sg-SSH/All Traffic-anywhere 
 
     sudo apt-get update && sudo apt-get upgrade -y    (download packages information and downloads and installs the updates for each outdated package and dependency on 
        your system)
@@ -20,7 +20,7 @@
 
     cd mlproject                              (enter in project directory)
 
-# Login to your github account and create a new repo and paste cmds from github repo:
+## Login to your github account and create a new repo and paste cmds from github repo:
 
     echo "# End-to-end-ML-Project" >> README.md
 
@@ -40,11 +40,11 @@
 
     git remote -v    (additional command)
 
-# Create .gitignore file with python template in mlproject repo on github
+## Create .gitignore file with python template in mlproject repo on github
 
     git pull                     (It will pull the .gitignore file in VScode mlproject repo)
 
-# create setup.py and requirements.txt in mlproject repo add a code in setup.py & requirements.txt
+## create setup.py and requirements.txt in mlproject repo add a code in setup.py & requirements.txt
 
 * setup.py will be responsible in creating my ML application as a package
 
@@ -60,21 +60,21 @@
 
       git push -u origin main
 
-# Create src (source) folder in mlproject and create below files in src on vs code  (this is the source file which help to manage the ml model)
+## Create src (source) folder in mlproject and create below files in src on vs code  (this is the source file which help to manage the ml model)
 
     __init__.py               -in src
     logger.py
     exception.py
     utils.py
 
-# create "components" (folder) in src folder & Create below files in components folder  
+## create "components" (folder) in src folder & Create below files in components folder  
 
     __init__.py
     data_ingestion.py
     data_transformation.py
     model_trainer.py
 
-# create "pipeline" (folder) in src & Create below files in pipeline folder  (we train and predict the model)
+## create "pipeline" (folder) in src & Create below files in pipeline folder  (we train and predict the model)
 
     __init__.py
     train_pipeline.py
@@ -109,7 +109,7 @@ paste the code of utils.py
       pip3 install jupyterlab
       jupyter lab
 
-# if above 2 commands not works then open new terminal and use below commands:
+## if above 2 commands not works then open new terminal and use below commands:
 
     source /home/ubuntu/MLPRO/bin/activate
     cd mlproject
@@ -119,7 +119,7 @@ paste the code of utils.py
     jupyter notebook password    (create new password)
     jupyter-lab --ip 0.0.0.0 --no-browser --allow-root  
 
-# Add new 2nd terminal if jupyther notebook is open on vscode.
+## Add new 2nd terminal if jupyther notebook is open on vscode.
 
     source MLPRO/bin/activate
     cd mlproject/ 
@@ -148,7 +148,7 @@ paste the code of utils.py
     git commit -m "Model Training"
     git push -u origin main
 
-# create one "templates" folder and create 2 files in that "index.html" and "home.html"
+## create one "templates" folder and create 2 files in that "index.html" and "home.html"
 * create "application.py" file in mlproject folder and paste the codes
        
 * make some changes in code -- add debug=True, port=5000 and run below command on terminal
