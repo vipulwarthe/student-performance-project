@@ -286,5 +286,13 @@ Now go to the Elastic beanstalk and Codepipeline service for deploy the predicti
 -you will see the home page -just write /predictdata after your URL you will see the prediction page.
 
 
-## deletation process - first delete codepipeline then delete elastice beanstalk environement -then terminate the instance
+## deletation process stages:
+
+-delete codepipeline 
+
+-terminate elastice beanstalk environement 
+
+-terminate the ec2 instance
+
+-delete s3 buckets
 
