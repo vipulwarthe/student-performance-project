@@ -163,57 +163,128 @@ now create code-pipeline - create pipeline - name- student-performance- Service 
 source- github(v1)
 
 ==================================================================================================================
-What is Elastic Beanstalk in AWS?
+* What is Elastic Beanstalk in AWS?
 Amazon Elastic Beanstalk is used for deploying and scaling web applications and services that are developed with Java, we can simply upload our code and Elastic Beanstalk automatically handles the deployment. It helps in deploying details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.
 
-Why AWS Elastic Beanstalk?
+* Why AWS Elastic Beanstalk?
 Elastic Beanstalk is a service for deploying and scaling web applications and services. Upload your code and Elastic Beanstalk automatically handles the deployment—from capacity provisioning, load balancing, and auto scaling to application health monitoring.
 
-What is AWS codepipeline?
+* What is AWS codepipeline?
 AWS CodePipeline is a product of Amazon Web Services. It automates the software deployment process that allows a developer to quickly model, visualize and deliver code for new features and updates. This method is called continuous delivery. It also enables the developer to integrate partner tools and custom tools into any stage of the release process to form an end-to-end continuous delivery solution.
 
-Why should I use AWS CodePipeline to set up a continuous delivery pipeline?
+* Why should I use AWS CodePipeline to set up a continuous delivery pipeline?
 By automating your build, test, and release processes, AWS CodePipeline enables you to increase the speed and quality of your software updates by running all new changes through a consistent set of quality checks.
 
-Which products can be integrated with the continuous delivery pipeline I build with AWS CodePipeline?
+* Which products can be integrated with the continuous delivery pipeline I build with AWS CodePipeline?
 AWS CodePipeline integrates with AWS services like AWS CodeCommit, Amazon S3, AWS CodeDeploy, AWS Elastic Beanstalk, AWS OpsWorks, and AWS Lambda. In addition, AWS CodePipeline integrates with a number of partner tools. For details see the product integrations page. Finally, you can write your own custom actions and integrate any existing tool with AWS CodePipeline. 
 
+* The ipynb File Extension:
+The ipynb file extension stands for “Interactive Python Notebook”. It is a file format used by Jupyter Notebook to store and share documents that contain live code, equations, visualizations, and narrative text. The ipynb file is a JSON (JavaScript Object Notation) file that contains a complete record of the user’s session, including code input and output, narrative text, and any other information that was displayed during the session.
+
+* CSV file format:
+A CSV (comma-separated values) file is a text file that has a specific format which allows data to be saved in a table structured format.
 ===================================================================================================================
 
--first create IAM role for user
--roles- create role - select ec2 - 
+## first create IAM role for user: "aws-elasticbeanstalk-service-role"
 
-1) AWSElasticBeanstalkWebTier 
-2) AWSElasticBeanstalkWorkerTier 
-3) AWSElasticBeanstalkMulticontainerDocker
+Roles- create role 
 
--create role
+Trusted entity type - AWS service 
 
-Elastic beanstalk: 
--create application-application name-(student performance)
--platform-python3.8
--application code-sample application -
--Service access-Use an existing service role-aws-elasticbeanstalk-service-role
--key pair - give any - ec2 instace profile - select created profile - skip to review - submit
+Use case - EC2
 
--till elastic beanstalk envirnoment geting ready we can not create codepipeline(waite for it)
+add below 7 policies in role.
 
-codepipeline:
--create pipeline -pipeline name-student_performance
--service role-new service role-advance setting-default
--next-source provider-github(version1)-connect to the github-
--confirm-select repo-mlproject-Branch-main
--change detection option-Github webhooks-next-
--Add build stage - skip build stage-next-Deploy-Deploy provider-
--AWS elastic beanstalk - Region-select your region-next-
--Application name-student performance-Envirnoment name- studentperformance-env --next- wait for envirnoment create-
--go to the Applications tab and click- select your application name-next-click on create pipeline
+    1) AWSElasticBeanstalkWebTier 
+    2) AWSElasticBeanstalkWorkerTier 
+    3) AWSElasticBeanstalkMulticontainerDocker
+    4)AWSElasticBeanstalkEnhancedHealth
+    5)AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy
+    6) AWSCodePipeline_FullAccess
+    7) AWSCodeBuildAdminAccess
+
+Now go to the Elastic beanstalk and Codepipeline service for deploy the prediction using AWS services.
+
+## Elastic beanstalk:   
+
+-go to elasticbeanstalk
+
+-create application
+
+-Configure environment - Environment tier - Web server environment
+
+-application name-(student-performance)
+
+-Application tags (optional)
+
+-Environment information - Environment name - Student-performance-env (it will take automatically)
+
+-Domain - keep blank  - Environment description -(keep blank)
+
+-platform - Managed platform - Platform - Python 
+
+-Platform branch - python 3.8 running on 64bit amazon linux 2
+
+-Platform version - 3.7.1 
+
+-Application code - sample application 
+
+-Presets - Single instance (free tier eligible) - Next
+
+-Service access - Use an existing service role - aws-elasticbeanstalk-service-role
+
+-key pair - select created key pair 
+
+-ec2 instace profile - select created profile - aws-elasticbeanstalk-service-role 
+
+-skip to review - submit
+
+-till elastic beanstalk envirnoment geting ready we can not create codepipeline(wait for it)
+
+## Codepipeline:
+
+-create pipeline - pipeline name - student_performance
+
+-Execution mode - Queued (Pipeline type V2 required)
+
+-service role - new service role 
+
+-Role name - it will take automatically
+
+-Variables - no need to add any variables 
+
+-Advanced settings - default - Next 
+
+-source provider-github(version2) - connect to github - you will see github connection
+
+-Connection - select connection
+
+-Repository name - select repo of student performance - Default Branch - main
+
+-Output artifact format - Codepipeline default -Trigger - No filter - Next 
+
+-Add build stage - skip build stage
+
+-Deploy  -Deploy provider - AWS elastic beanstalk
+
+-Region - select your region 
+
+-Application name - student-performance
+
+-Envirnoment name- studentperformance-env - Next - Create Pipeline
+
+## before creting pipeline delete old policy which is - AWSCodePipelineServiceRole-us-east-1-student_performance
+
+-After creating pipeline it will automatically trigger github repo and deploy application successfully.
+
 -click inside in deploy on AWS elastic beanstalk it will open link in browser
--go to the elastic beanstalk dashboard - you will see the studentperformance-env - click on generated URL it will open in browser
+
+-go to the elastic beanstalk dashboard - you will see the studentperformance-env 
+
+-click on Domain URL it will open in browser
+
 -you will see the home page -just write /predictdata after your URL you will see the prediction page.
 
 
--deletation process - first delete codepipeline then delete elastice beanstalk
--then terminate the instance
+## deletation process - first delete codepipeline then delete elastice beanstalk environement -then terminate the instance
 
-         demo is over...thank you...to be continue...cloud watch monitoring remaning....
