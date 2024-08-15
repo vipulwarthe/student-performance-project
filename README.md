@@ -290,7 +290,7 @@ Now go to the Elastic beanstalk and Codepipeline service for deploy the predicti
 
 -delete codepipeline 
 
--terminate elastice beanstalk environement 
+-terminate elastice beanstalk environement and then delete the Application
 
 -terminate the ec2 instance
 
