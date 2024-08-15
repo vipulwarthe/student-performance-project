@@ -1,153 +1,159 @@
 # student-performance
 ##deploy end to end student performance ML model with AWS elastic beanstock and codepipeline##
 
-Krish naik Repo link: https://github.com/krishnaik06/mlproject/
-ARCHNA Repo link- https://github.com/swapnil123kapile/MLProjects-archana
-vipul repo link:  https://github.com/vipulwarthe/student-performance
+    Krish naik Repo link: https://github.com/krishnaik06/mlproject/
+    ARCHNA Repo link- https://github.com/swapnil123kapile/MLProjects-archana
+    vipul repo link:  https://github.com/vipulwarthe/student-performance
 
-First we Create instance with ubuntu AMI with t2.medium instance type with 30GB storage and sg-SSH/All Traffic-anywhere 
+# First we Create instance with ubuntu AMI with t2.medium instance type with 30GB storage and sg-SSH/All Traffic-anywhere 
 
-sudo apt-get update && sudo apt-get upgrade -y    (download packages information and downloads and installs the updates for each outdated package and dependency on 
+    sudo apt-get update && sudo apt-get upgrade -y    (download packages information and downloads and installs the updates for each outdated package and dependency on 
        your system)
        
-sudo apt install python3-venv -y          (install python environment)
+    sudo apt install python3-venv -y          (install python environment)
 
-$python3 -m venv MLPRO                     (create an isolated Python environment)
+    python3 -m venv MLPRO                     (create an isolated Python environment)
 
-source MLPRO/bin/activate                 (activate envirnoment mlpro env)
+    source MLPRO/bin/activate                 (activate envirnoment mlpro env)
 
-mkdir mlproject                           (create one project directory)
+    mkdir mlproject                           (create one project directory)
 
-cd mlproject                              (enter in project directory)
+    cd mlproject                              (enter in project directory)
 
-Login to your github account and create a new repo and paste cmds from github repo:
+# Login to your github account and create a new repo and paste cmds from github repo:
 
-echo "# End-to-end-ML-Project" >> README.md
+    echo "# End-to-end-ML-Project" >> README.md
 
-git add README.md
+    git add README.md
 
-git commit -m "First Commit"
+    git commit -m "First Commit"
 
-git status
+    git status
 
-git branch -M main
+    git branch -M main
 
-git branch
+    git branch
 
-git remote add origin https://github.com/vipulwarthe/mlproject.git
+    git remote add origin https://github.com/vipulwarthe/mlproject.git
 
-git push -u origin main
+    git push -u origin main
 
-git remote -v    (additional command)
+    git remote -v    (additional command)
 
-Create .gitignore file with python template in mlproject repo on github
+# Create .gitignore file with python template in mlproject repo on github
 
-git pull                     (It will pull the .gitignore file in VScode mlproject repo)
+    git pull                     (It will pull the .gitignore file in VScode mlproject repo)
 
-create setup.py and requirements.txt in mlproject repo add a code in setup.py & requirements.txt
+# create setup.py and requirements.txt in mlproject repo add a code in setup.py & requirements.txt
 
--setup.py will be responsible in creating my ML application as a package
+* setup.py will be responsible in creating my ML application as a package
 
-pip install -r requirements.txt 
+      pip install -r requirements.txt 
 
-git status
+      git status
 
-git add .
+      git add .
 
-git status
+      git status
 
-git commit -m "Setup"
+      git commit -m "Setup"
 
-git push -u origin main
+      git push -u origin main
 
-Create src (source) folder in mlproject and create below files in src on vs code  (this is the source file which help to manage the ml model)
-__init__.py               -in src
-logger.py
-exception.py
-utils.py
+# Create src (source) folder in mlproject and create below files in src on vs code  (this is the source file which help to manage the ml model)
 
-create "components" (folder) in src folder & Create below files in components folder  
-__init__.py
-data_ingestion.py
-data_transformation.py
-model_trainer.py
+    __init__.py               -in src
+    logger.py
+    exception.py
+    utils.py
 
-create "pipeline" (folder) in src & Create below files in pipeline folder  (we train and predict the model)
-__init__.py
-train_pipeline.py
-predict_pipline.py
+# create "components" (folder) in src folder & Create below files in components folder  
+
+    __init__.py
+    data_ingestion.py
+    data_transformation.py
+    model_trainer.py
+
+# create "pipeline" (folder) in src & Create below files in pipeline folder  (we train and predict the model)
+
+    __init__.py
+    train_pipeline.py
+    predict_pipline.py
 
 paste the code of exception.py
+
 paste the code of logger.py
+
 paste the code of utils.py
 
-python3 src/logger.py                (we run logger file and it will generate the logs)
+    python3 src/logger.py                (we run logger file and it will generate the logs)
 
-git status
-git add .
-git status
-git commit -m "Logging and Exception"
-git push -u origin main
+    git status
+    git add .
+    git status
+    git commit -m "Logging and Exception"
+    git push -u origin main
 
-now check in git repo you will see all the files which you have commited and push.
+* now check in git repo you will see all the files which you have commited and push.
 
-Create "notebook" folder in mlproject & drag and drop below two files in it.
+* Create "notebook" folder in mlproject & drag and drop below two files in it.
 
 1 .EDA STUDENT PERFORMANCE.ipynb
 2 .MODEL TRAINING.ipynb
 
-Create folder named "data" in notebook folder & drag and drop below two file in it.
+* Create folder named "data" in notebook folder & drag and drop below two file in it.
 
-create "stud.csv" file in data folder and paste data into it.
-Now select the 1 & 2 .ipynb files, select the kernel as per suggestion and run these files. if both files run successfully run 105 command on terminal and follow the next commands as mentioned.
+* create "stud.csv" file in data folder and paste data into it.
+  Now select the 1 & 2 .ipynb files, select the kernel as per suggestion and run these files. if both files run successfully run 105 command on terminal and follow the next commands as mentioned.
 
--pip3 install jupyterlab
--jupyter lab
+      pip3 install jupyterlab
+      jupyter lab
 
--if above 2 commands not works then open new terminal and use below commands:
+# if above 2 commands not works then open new terminal and use below commands:
 
--source /home/ubuntu/MLPRO/bin/activate
--cd mlproject
--pip3 install jupyterlab
--sudo apt install jupyter-notebook
--jupyter notebook --generate-config
--jupyter notebook password   (create new password)
--jupyter-lab --ip 0.0.0.0 --no-browser --allow-root  
+    source /home/ubuntu/MLPRO/bin/activate
+    cd mlproject
+    pip3 install jupyterlab
+    sudo apt install jupyter-notebook
+    jupyter notebook --generate-config
+    jupyter notebook password    (create new password)
+    jupyter-lab --ip 0.0.0.0 --no-browser --allow-root  
 
-Add new 2nd terminal if jupyther notebook is open on vscode.
-source MLPRO/bin/activate
-cd mlproject/ 
-git status
-git add .
-git status
-git commit -m "EDA and Problem Statement"
-git status
-git push -u origin main
-python src/components/data_ingestion.py
-git status
-git add .
-git commit -m "Data Ingestion"
-git push -u origin main
-python src/components/data_transformation.py
-python src/components/data_ingestion.py
-git status
-git add .
-git status
-git commit -m "Data Transformation Done"
-git push -u origin main
-python src/components/model_trainer.py 
-python src/components/data_ingestion.py
-git status
-git add .
-git commit -m "Model Training"
-git push -u origin main
+# Add new 2nd terminal if jupyther notebook is open on vscode.
 
-create one "templates" folder and create 2 files in that "index.html" and "home.html"
-create "application.py" file in mlproject folder and paste the codes
+    source MLPRO/bin/activate
+    cd mlproject/ 
+    git status
+    git add .
+    git status
+    git commit -m "EDA and Problem Statement"
+    git status
+    git push -u origin main
+    python src/components/data_ingestion.py
+    git status
+    git add .
+    git commit -m "Data Ingestion"
+    git push -u origin main
+    python src/components/data_transformation.py
+    python src/components/data_ingestion.py
+    git status
+    git add .
+    git status
+    git commit -m "Data Transformation Done"
+    git push -u origin main
+    python src/components/model_trainer.py 
+    python src/components/data_ingestion.py
+    git status
+    git add .
+    git commit -m "Model Training"
+    git push -u origin main
+
+# create one "templates" folder and create 2 files in that "index.html" and "home.html"
+* create "application.py" file in mlproject folder and paste the codes
        
-make some changes in code -- add debug=True, port=5000 and run below command on terminal
+* make some changes in code -- add debug=True, port=5000 and run below command on terminal
 
-python application.py
+      python application.py
 
 above command redirect to the browser  (http://127.0.0.1:5000/predictdata)  
 
