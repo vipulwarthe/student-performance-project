@@ -1,21 +1,24 @@
-# Use an official Python runtime as a parent image
-FROM python:3.7
+# Use the official Python image as the base
+FROM python:3.9-slim
 
-# Create a directory in the container to hold your application files
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt requirements.txt
+# Copy the contents of the repository to the working directory
+COPY . /app
 
-# Upgrade pip and install the Python packages from requirements.txt
+# Install system dependencies (optional, modify if needed)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Copy the rest of your application code into the container
-COPY . /app
+# Expose any ports if needed (e.g., if running a web app)
+# EXPOSE 8080
 
-# Expose the port your application will run on
-EXPOSE 5000
-
-# Define the command to run when the container starts
+# Define the entrypoint command to run the app (replace 'main.py' with your entry file if different)
 CMD ["python", "application.py"]
+
