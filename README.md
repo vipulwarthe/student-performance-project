@@ -89,7 +89,7 @@ paste the code of logger.py
 paste the code of utils.py
 
     python3 src/logger.py                (we run logger file and it will generate the logs)
-
+    pip install scikit-learn==1.1.3      (use below command before run data_ingestion.py file)
     git status
     git add .
     git status
