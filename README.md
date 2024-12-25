@@ -227,9 +227,9 @@ Now go to the Elastic beanstalk and Codepipeline service for deploy the predicti
 
 -platform - Managed platform - Platform - Python 
 
--Platform branch - python 3.8 running on 64bit amazon linux 2
+-Platform branch - python 3.9 running on 64bit amazon linux 2
 
--Platform version - 3.7.1 
+-Platform version - 4.3.2
 
 -Application code - sample application 
 
