@@ -98,15 +98,17 @@ paste the code of utils.py
 
 * now check in git repo you will see all the files which you have commited and push.
 
-* Create "notebook" folder in mlproject & drag and drop below two files in it.
+## Create "notebook" folder in mlproject & drag and drop below two files in it.
 
 1 .EDA STUDENT PERFORMANCE.ipynb
+
 2 .MODEL TRAINING.ipynb
 
-* Create folder named "data" in notebook folder & drag and drop below two file in it.
+## Create folder named "data" in notebook folder & drag and drop below two file in it.
 
 * create "stud.csv" file in data folder and paste data into it.
-  Now select the 1 & 2 .ipynb files, select the kernel as per suggestion and run these files. if both files run successfully run 105 command on terminal and follow the next commands as mentioned.
+
+* Now select the 1 & 2 .ipynb files, select the kernel as per suggestion and run these files. 
 
       pip3 install jupyterlab
       jupyter lab
