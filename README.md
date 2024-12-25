@@ -58,6 +58,8 @@
 
       git commit -m "Setup"
 
+      git pull origin main --rebase    (remote branch contains commits that are not present in your local branch, for resolve this error use this cmd)
+  
       git push -u origin main
 
 ## Create src (source) folder in mlproject and create below files in src on vs code  (this is the source file which help to manage the ml model)
